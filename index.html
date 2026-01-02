@@ -24,28 +24,32 @@
         </div>
     </header>
 
-    <nav>
-        <div class="container nav-container">
-            <div class="nav-item active" data-section="starting-point">📍 My Starting Point</div>
-            <div class="nav-item" data-section="january">📅 January 2026</div>
-            <div class="nav-item" data-section="february">📅 February 2026</div>
-            <div class="nav-item" data-section="march">📅 March 2026</div>
-            <div class="nav-item" data-section="april">📅 April 2026</div>
-            <div class="nav-item" data-section="may">📅 May 2026</div>
-        </div>
-    </nav>
+   <nav>
+    <div class="container nav-container">
+        <div class="nav-item active" data-section="starting-point">📍 My Starting Point</div>
+        <div class="nav-item" data-section="skill-tree">🌳 Skill Tree</div>
+        <div class="nav-item" data-section="quest-log">📜 Quest Log</div>
+        <div class="nav-item" data-section="2026">🎯 2026 - Foundation</div>
+        <div class="nav-item" data-section="2027">🔥 2027 - Mastery</div>
+        <div class="nav-item" data-section="2028">🚀 2028 - Specialization</div>
+        <div class="nav-item" data-section="2029">🎓 2029 - Masters</div>
+        <div class="nav-item" data-section="resources">📚 Resource Library</div>
+    </div>
+</nav> 
 
     <div class="container main-content">
         <aside class="sidebar">
             <h3><i class="fas fa-calendar-alt"></i> My Timeline</h3>
-            <ul class="timeline-nav">
-                <li class="active" data-section="starting-point">📍 My Starting Point</li>
-                <li data-section="january">📅 January - Foundation</li>
-                <li data-section="february">📅 February - Coding</li>
-                <li data-section="march">📅 March - Grasshopper</li>
-                <li data-section="april">📅 April - Structures</li>
-                <li data-section="may">📅 May - Job Prep</li>
-            </ul>
+          <ul class="timeline-nav">
+    <li class="active" data-section="starting-point">📍 My Starting Point</li>
+    <li data-section="skill-tree">🌳 Skill Tree Progression</li>
+    <li data-section="quest-log">📜 Active Quests</li>
+    <li data-section="2026">🎯 2026 - Foundation Year</li>
+    <li data-section="2027">🔥 2027 - Core Mastery</li>
+    <li data-section="2028">🚀 2028 - Advanced Specialization</li>
+    <li data-section="2029">🎓 2029 - Masters Level</li>
+    <li data-section="resources">📚 Resource Library</li>
+</ul>
 
             <div class="skill-summary">
                 <h3><i class="fas fa-chart-line"></i> My Skills</h3>
@@ -227,6 +231,662 @@
                     <div class="time-estimate">~69 hours total</div>
                 </div>
             </section>
+               <div class="section-header">
+        <h2 class="section-title">🌳 SKILL TREE PROGRESSION</h2>
+        <div class="time-estimate">Current Level: <span id="player-level">1</span></div>
+    </div>
+    
+    <div class="skill-tree-container">
+        <!-- PARAMETRIC PATH -->
+        <div class="skill-path">
+            <h3 class="path-title"><i class="fas fa-project-diagram"></i> Parametric Path</h3>
+            <div class="skill-nodes">
+                <div class="skill-node unlocked" data-skill="revit-basics">
+                    <div class="node-icon">📐</div>
+                    <div class="node-title">Revit Basics</div>
+                    <div class="node-level">Lvl 1</div>
+                    <div class="node-status">✅ COMPLETED</div>
+                </div>
+                
+                <div class="skill-connector">→</div>
+                
+                <div class="skill-node locked" data-skill="revit-families">
+                    <div class="node-icon">🧩</div>
+                    <div class="node-title">Revit Families</div>
+                    <div class="node-level">Lvl 2</div>
+                    <div class="node-status">🔒 LOCKED</div>
+                    <div class="node-requirements">Requires: Revit Basics</div>
+                </div>
+                
+                <div class="skill-connector">→</div>
+                
+                <div class="skill-node locked" data-skill="dynamo-basics">
+                    <div class="node-icon">⚙️</div>
+                    <div class="node-title">Dynamo Basics</div>
+                    <div class="node-level">Lvl 3</div>
+                    <div class="node-status">🔒 LOCKED</div>
+                    <div class="node-requirements">Requires: Revit Families</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CODING PATH -->
+        <div class="skill-path">
+            <h3 class="path-title"><i class="fas fa-code"></i> Coding Path</h3>
+            <div class="skill-nodes">
+                <div class="skill-node locked" data-skill="python-basics">
+                    <div class="node-icon">🐍</div>
+                    <div class="node-title">Python Basics</div>
+                    <div class="node-level">Lvl 1</div>
+                    <div class="node-status">🔒 LOCKED</div>
+                    <div class="node-requirements">Unlocks Feb 2026</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- STRUCTURAL PATH -->
+        <div class="skill-path">
+            <h3 class="path-title"><i class="fas fa-bridge"></i> Structural Path</h3>
+            <div class="skill-nodes">
+                <div class="skill-node locked" data-skill="karamba-basics">
+                    <div class="node-icon">🏗️</div>
+                    <div class="node-title">Karamba3D Basics</div>
+                    <div class="node-level">Lvl 1</div>
+                    <div class="node-status">🔒 LOCKED</div>
+                    <div class="node-requirements">Unlocks April 2026</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="skill-tree-info">
+        <h4><i class="fas fa-info-circle"></i> How Skill Progression Works:</h4>
+        <ol>
+            <li>Complete <strong>Learning Quest</strong> (watch video/read article)</li>
+            <li>Complete <strong>Practice Quest</strong> (upload project file)</li>
+            <li>Skill unlocks → Next skill becomes available</li>
+            <li>Unlock all skills in a path to access <strong>BOSS PROJECT</strong></li>
+        </ol>
+    </div> 
+<section id="skill-tree" style="display: none;">
+    <!-- SKILL TREE CONTENT FROM EARLIER GOES HERE -->
+</section>
+
+    <div class="section-header">
+        <h2 class="section-title">📜 ACTIVE QUESTS</h2>
+        <div class="time-estimate">Quests Completed: <span id="quests-completed">0</span>/50</div>
+    </div>
+    
+    <div class="quest-categories">
+        <!-- LEARNING QUESTS -->
+        <div class="quest-category">
+            <h3 class="category-title"><i class="fas fa-graduation-cap"></i> Learning Quests</h3>
+            <div class="quest-list">
+                <div class="quest-card learning-quest" data-quest="revit-families-learn">
+                    <div class="quest-header">
+                        <div class="quest-title">📚 Learn: Advanced Revit Families</div>
+                        <div class="quest-reward">+100 XP</div>
+                    </div>
+                    <div class="quest-desc">
+                        <p><strong>Resource:</strong> BIMscape YouTube - "Revit Families Masterclass"</p>
+                        <p><strong>Task:</strong> Watch all 6 videos (total 2.5 hours)</p>
+                    </div>
+                    <div class="quest-actions">
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="quest-button resource-btn">
+                            <i class="fas fa-external-link-alt"></i> Open Resource
+                        </a>
+                        <button class="quest-button complete-btn" onclick="completeQuest('revit-families-learn')">
+                            <i class="fas fa-check"></i> Mark as Watched
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PRACTICE QUESTS -->
+        <div class="quest-category">
+            <h3 class="category-title"><i class="fas fa-hammer"></i> Practice Quests</h3>
+            <div class="quest-list">
+                <div class="quest-card practice-quest" data-quest="revit-families-practice">
+                    <div class="quest-header">
+                        <div class="quest-title">⚒️ Practice: Create Parametric Family</div>
+                        <div class="quest-reward">+200 XP</div>
+                    </div>
+                    <div class="quest-desc">
+                        <p><strong>Project:</strong> Create a parametric window family with:
+                        <ul>
+                            <li>Adjustable width/height</li>
+                            <li>Material parameters</li>
+                            <li>3 type variations</li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="quest-actions">
+                        <input type="file" id="revit-file-upload" accept=".rfa,.rvt" style="display: none;">
+                        <button class="quest-button upload-btn" onclick="document.getElementById('revit-file-upload').click()">
+                            <i class="fas fa-upload"></i> Upload .RFA File
+                        </button>
+                        <button class="quest-button complete-btn" onclick="completeQuest('revit-families-practice')" disabled>
+                            <i class="fas fa-check"></i> Complete Upload First
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BOSS QUESTS -->
+        <div class="quest-category">
+            <h3 class="category-title"><i class="fas fa-dragon"></i> Boss Quests (Portfolio Projects)</h3>
+            <div class="quest-list">
+                <div class="quest-card boss-quest locked" data-quest="january-boss">
+                    <div class="quest-header">
+                        <div class="quest-title">🏆 BOSS: Parametric Facade System</div>
+                        <div class="quest-reward">+500 XP</div>
+                    </div>
+                    <div class="quest-desc">
+                        <p><strong>Requirements:</strong> Complete all January skill quests first</p>
+                        <div class="requirements-list">
+                            <span class="req-item incomplete">🔒 Revit Families</span>
+                            <span class="req-item incomplete">🔒 Dynamo Basics</span>
+                        </div>
+                    </div>
+                    <div class="quest-status">🔒 LOCKED - Complete prerequisites</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<section id="quest-log" style="display: none;">
+    <!-- QUEST LOG CONTENT FROM EARLIER GOES HERE -->
+</section>
+
+<!-- ===== 2027 SECTION ===== -->
+<section id="2027" style="display: none;">
+    <div class="section-header">
+        <h2 class="section-title">🔥 2027 - CORE MASTERY (YEAR 3)</h2>
+        <div class="time-estimate">Focus: Advanced Tools + Research</div>
+    </div>
+    
+    <div class="year-overview">
+        <div class="year-stats">
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Major Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Research Papers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1</div>
+                <div class="stat-label">International Internship</div>
+            </div>
+        </div>
+        
+        <h3 class="section-subtitle">2027 Skill Paths:</h3>
+        <div class="skill-paths-grid">
+            <div class="path-card">
+                <h4><i class="fas fa-robot"></i> Robotic Fabrication</h4>
+                <ul>
+                    <li>KUKA|prc programming</li>
+                    <li>Toolpath optimization</li>
+                    <li>Material systems</li>
+                </ul>
+            </div>
+            <div class="path-card">
+                <h4><i class="fas fa-brain"></i> Machine Learning</h4>
+                <ul>
+                    <li>Python ML libraries</li>
+                    <li>Dataset creation</li>
+                    <li>Generative design</li>
+                </ul>
+            </div>
+            <div class="path-card">
+                <h4><i class="fas fa-gamepad"></i> Real-Time Visualization</h4>
+                <ul>
+                    <li>Unreal Engine for Arch</li>
+                    <li>VR/AR development</li>
+                    <li>Interactive configurators</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h3 class="section-subtitle">2027 Boss Projects:</h3>
+        <div class="boss-projects">
+            <div class="boss-card">
+                <div class="boss-icon">🤖</div>
+                <div class="boss-info">
+                    <div class="boss-title">Robotic Timber Pavilion</div>
+                    <div class="boss-desc">Full design-to-fabrication workflow with robotic assembly</div>
+                </div>
+                <div class="boss-status">🔒 Unlocks Q3 2027</div>
+            </div>
+            <div class="boss-card">
+                <div class="boss-icon">🧠</div>
+                <div class="boss-info">
+                    <div class="boss-title">AI-Driven Urban Generator</div>
+                    <div class="boss-desc">ML algorithm for sustainable neighborhood layouts</div>
+                </div>
+                <div class="boss-status">🔒 Unlocks Q4 2027</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="2027" style="display: none;">
+    <!-- 2027 CONTENT FROM EARLIER GOES HERE -->
+</section>
+
+<!-- ===== 2028 SECTION ===== -->
+<section id="2028" style="display: none;">
+    <div class="section-header">
+        <h2 class="section-title">🚀 2028 - ADVANCED SPECIALIZATION (HONOURS)</h2>
+        <div class="time-estimate">Focus: Research + MSc Applications</div>
+    </div>
+    
+    <div class="year-overview">
+        <h3 class="section-subtitle">Research Tracks (Choose One):</h3>
+        <div class="research-tracks">
+            <div class="track-card">
+                <input type="radio" id="track-ai" name="research-track" class="track-radio">
+                <label for="track-ai">
+                    <h4>AI-Driven Generative Design</h4>
+                    <p>ML for climate-responsive structures in SA context</p>
+                </label>
+            </div>
+            <div class="track-card">
+                <input type="radio" id="track-robotic" name="research-track" class="track-radio">
+                <label for="track-robotic">
+                    <h4>Robotic Local Materials</h4>
+                    <p>Robotic assembly of traditional SA building materials</p>
+                </label>
+            </div>
+            <div class="track-card">
+                <input type="radio" id="track-urban" name="research-track" class="track-radio">
+                <label for="track-urban">
+                    <h4>Computational Urban Planning</h4>
+                    <p>Multi-objective optimization for informal settlements</p>
+                </label>
+            </div>
+        </div>
+        
+        <h3 class="section-subtitle">MSc Application Timeline:</h3>
+        <div class="timeline-tracker">
+            <div class="timeline-phase current">
+                <div class="phase-icon">📅</div>
+                <div class="phase-info">
+                    <div class="phase-title">Jan-Mar 2028: Research Development</div>
+                    <div class="phase-desc">Build research portfolio, contact supervisors</div>
+                </div>
+            </div>
+            <div class="timeline-phase">
+                <div class="phase-icon">✍️</div>
+                <div class="phase-info">
+                    <div class="phase-title">Apr-Jun 2028: Applications</div>
+                    <div class="phase-desc">Submit to ETH, MIT, UCL, TU Delft</div>
+                </div>
+            </div>
+            <div class="timeline-phase">
+                <div class="phase-icon">🎓</div>
+                <div class="phase-info">
+                    <div class="phase-title">Sep 2029: MSc Start</div>
+                    <div class="phase-desc">Begin specialized masters program</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="application-checklist">
+            <h3 class="section-subtitle">Application Checklist:</h3>
+            <div class="checklist-items">
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1">
+                    <label for="check1">Research Proposal (1500 words)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">Academic Portfolio (20 pages)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3">
+                    <label for="check3">3 Recommendation Letters</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4">
+                    <label for="check4">GRE Scores (165+ Quant)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5">
+                    <label for="check5">TOEFL/IELTS (110+/8.0+)</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="2028" style="display: none;">
+    <!-- 2028 CONTENT FROM EARLIER GOES HERE -->
+</section>
+
+<!-- ===== 2029 SECTION ===== -->
+<section id="2029" style="display: none;">
+    <div class="section-header">
+        <h2 class="section-title">🎓 2029 - MASTERS LEVEL</h2>
+        <div class="time-estimate">Target: Top International Programs</div>
+    </div>
+    
+    <div class="masters-programs">
+        <h3 class="section-subtitle">Target MSc Programs:</h3>
+        
+        <div class="program-card tier-1">
+            <div class="program-rank">🏆 Tier 1</div>
+            <div class="program-info">
+                <h4>MIT - SMArchS Computation</h4>
+                <p><strong>Focus:</strong> AI, Robotics, Advanced Computation</p>
+                <p><strong>Deadline:</strong> October 2028</p>
+                <p><strong>Requirements:</strong> GRE, Portfolio, Research Proposal</p>
+                <a href="https://architecture.mit.edu/computation" target="_blank" class="program-link">Program Website →</a>
+            </div>
+            <div class="program-progress">
+                <div class="progress-label">Preparation: 15%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 15%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="program-card tier-1">
+            <div class="program-rank">🏆 Tier 1</div>
+            <div class="program-info">
+                <h4>ETH Zurich - MAS DFAB</h4>
+                <p><strong>Focus:</strong> Digital Fabrication, Robotics</p>
+                <p><strong>Deadline:</strong> December 2028</p>
+                <p><strong>Scholarship:</strong> Swiss Government Possible</p>
+                <a href="https://dfab.ch" target="_blank" class="program-link">Program Website →</a>
+            </div>
+            <div class="program-progress">
+                <div class="progress-label">Preparation: 10%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 10%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="program-card tier-2">
+            <div class="program-rank">🥈 Tier 2</div>
+            <div class="program-info">
+                <h4>UCL Bartlett - RC4/B-Pro</h4>
+                <p><strong>Focus:</strong> Design Computation, Material Research</p>
+                <p><strong>Deadline:</strong> Multiple Rounds</p>
+                <p><strong>Advantage:</strong> Strong SA Alumni Network</p>
+                <a href="https://www.ucl.ac.uk/bartlett/architecture/programmes/postgraduate" target="_blank" class="program-link">Program Website →</a>
+            </div>
+        </div>
+        
+        <div class="program-card tier-2">
+            <div class="program-rank">🥈 Tier 2</div>
+            <div class="program-info">
+                <h4>TU Delft - MSc Architecture (BIM)</h4>
+                <p><strong>Focus:</strong> BIM, Computational Design</p>
+                <p><strong>Deadline:</strong> Rolling</p>
+                <p><strong>Scholarship:</strong> Holland Scholarship Possible</p>
+                <a href="https://www.tudelft.nl/onderwijs/opleidingen/masters/architecture-urbanism-and-building-sciences/msc-architecture-urbanism-and-building-sciences" target="_blank" class="program-link">Program Website →</a>
+            </div>
+        </div>
+        
+        <div class="program-card tier-3">
+            <div class="program-rank">🥉 Tier 3</div>
+            <div class="program-info">
+                <h4>University of Stuttgart - ITECH</h4>
+                <p><strong>Focus:</strong> Integrative Technology, Fabrication</p>
+                <p><strong>Deadline:</strong> March 2028</p>
+                <p><strong>Funding:</strong> DAAD Scholarships Available</p>
+                <a href="https://www.itke.uni-stuttgart.de/studium/itech/" target="_blank" class="program-link">Program Website →</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="scholarship-tracker">
+        <h3 class="section-subtitle">Scholarship Applications:</h3>
+        <div class="scholarship-list">
+            <div class="scholarship-item">
+                <div class="scholarship-name">Allan Gray Orbis Foundation</div>
+                <div class="scholarship-deadline">Deadline: August 2027</div>
+                <div class="scholarship-amount">Full tuition + living</div>
+                <div class="scholarship-status">📅 Upcoming</div>
+            </div>
+            <div class="scholarship-item">
+                <div class="scholarship-name">Mandela Rhodes Scholarships</div>
+                <div class="scholarship-deadline">Deadline: June 2027</div>
+                <div class="scholarship-amount">Full coverage</div>
+                <div class="scholarship-status">📅 Upcoming</div>
+            </div>
+            <div class="scholarship-item">
+                <div class="scholarship-name">DAAD Scholarships (Germany)</div>
+                <div class="scholarship-deadline">Deadline: Nov 2028</div>
+                <div class="scholarship-amount">€861/month + tuition</div>
+                <div class="scholarship-status">⏳ Later</div>
+            </div>
+            <div class="scholarship-item">
+                <div class="scholarship-name">Chevening Scholarships (UK)</div>
+                <div class="scholarship-deadline">Deadline: Nov 2028</div>
+                <div class="scholarship-amount">Full tuition + stipend</div>
+                <div class="scholarship-status">⏳ Later</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="masters-prep">
+        <h3 class="section-subtitle">Preparation Timeline:</h3>
+        <div class="prep-timeline">
+            <div class="prep-phase">
+                <div class="prep-date">2027</div>
+                <div class="prep-content">
+                    <h4>Year 3: Build Research Profile</h4>
+                    <ul>
+                        <li>Publish 2-3 conference papers</li>
+                        <li>Complete significant research project</li>
+                        <li>Get strong recommendation letters</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="prep-phase">
+                <div class="prep-date">2028</div>
+                <div class="prep-content">
+                    <h4>Honours: Application Focus</h4>
+                    <ul>
+                        <li>Take GRE (aim 165+ Quant)</li>
+                        <li>Take TOEFL/IELTS if needed</li>
+                        <li>Finalize portfolio (20 pages)</li>
+                        <li>Contact potential supervisors</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="prep-phase">
+                <div class="prep-date">2029</div>
+                <div class="prep-content">
+                    <h4>Masters Start</h4>
+                    <ul>
+                        <li>Begin specialized coursework</li>
+                        <li>Join research lab</li>
+                        <li>Network with industry leaders</li>
+                        <li>Start PhD planning (optional)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="2029" style="display: none;">
+    <!-- 2029 CONTENT FROM EARLIER GOES HERE -->
+</section>
+
+<!-- ===== RESOURCE LIBRARY ===== -->
+<section id="resources" style="display: none;">
+    <div class="section-header">
+        <h2 class="section-title">📚 RESOURCE LIBRARY</h2>
+        <div class="time-estimate">Total Resources: <span id="resource-count">25</span></div>
+    </div>
+    
+    <div class="resource-filters">
+        <button class="filter-btn active" data-filter="all">All Resources</button>
+        <button class="filter-btn" data-filter="video">🎥 Videos</button>
+        <button class="filter-btn" data-filter="book">📚 Books</button>
+        <button class="filter-btn" data-filter="course">🎓 Courses</button>
+        <button class="filter-btn" data-filter="free">🆓 Free</button>
+        <button class="filter-btn" data-filter="paid">💰 Paid</button>
+        <button class="filter-btn" data-filter="sa">🇿🇦 SA Focus</button>
+    </div>
+    
+    <div class="resources-grid">
+        <!-- REVIT RESOURCES -->
+        <div class="resource-card video free sa" data-skill="revit">
+            <div class="resource-type">🎥 Video Series | 🇿🇦 SA</div>
+            <div class="resource-title">BIMscape YouTube - Revit Families Masterclass</div>
+            <div class="resource-desc">SA-based comprehensive guide to parametric families in Revit (24 videos)</div>
+            <div class="resource-meta">
+                <span><i class="fas fa-clock"></i> 6 hours</span>
+                <span><i class="fas fa-globe"></i> SA-Based</span>
+                <span><i class="fas fa-tag"></i> Revit</span>
+            </div>
+            <a href="https://www.youtube.com/@BIMscape" target="_blank" class="resource-link">
+                <i class="fas fa-external-link-alt"></i> Watch Series
+            </a>
+            <div class="resource-progress">
+                <div class="progress-label">Watched: <span id="bimscape-progress">0</span>/24 videos</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PYTHON RESOURCES -->
+        <div class="resource-card book free" data-skill="python">
+            <div class="resource-type">📚 Free Book</div>
+            <div class="resource-title">Automate the Boring Stuff with Python</div>
+            <div class="resource-desc">Practical Python programming for beginners (free online)</div>
+            <div class="resource-meta">
+                <span><i class="fas fa-book"></i> 20 chapters</span>
+                <span><i class="fas fa-download"></i> Free PDF</span>
+                <span><i class="fas fa-tag"></i> Python</span>
+            </div>
+            <a href="https://automatetheboringstuff.com" target="_blank" class="resource-link">
+                <i class="fas fa-external-link-alt"></i> Read Online
+            </a>
+        </div>
+        
+        <!-- GRASSHOPPER RESOURCES -->
+        <div class="resource-card course paid" data-skill="grasshopper">
+            <div class="resource-type">🎓 Course Bundle</div>
+            <div class="resource-title">Parametric House - Grasshopper Mastery</div>
+            <div class="resource-desc">From beginner to advanced parametric design (5 courses)</div>
+            <div class="resource-meta">
+                <span><i class="fas fa-rand"></i> R850</span>
+                <span><i class="fas fa-certificate"></i> Certificate</span>
+                <span><i class="fas fa-tag"></i> Grasshopper</span>
+            </div>
+            <a href="https://parametrichouse.com/courses" target="_blank" class="resource-link">
+                <i class="fas fa-external-link-alt"></i> View Course
+            </a>
+        </div>
+        
+        <!-- KARAMBA RESOURCES -->
+        <div class="resource-card course paid" data-skill="karamba">
+            <div class="resource-type">🎓 Certification</div>
+            <div class="resource-title">Karamba3D Certification Course</div>
+            <div class="resource-desc">Structural analysis and optimization in Grasshopper</div>
+            <div class="resource-meta">
+                <span><i class="fas fa-euro-sign"></i> €150 (≈R3,000)</span>
+                <span><i class="fas fa-award"></i> Industry Cert</span>
+                <span><i class="fas fa-tag"></i> Karamba3D</span>
+            </div>
+            <a href="https://www.karamba3d.com/training" target="_blank" class="resource-link">
+                <i class="fas fa-external-link-alt"></i> Get Certified
+            </a>
+        </div>
+        
+        <!-- DYNAMO RESOURCES -->
+        <div class="resource-card video free" data-skill="dynamo">
+            <div class="resource-type">🎥 Video Tutorials</div>
+            <div class="resource-title">Dynamo Primer - Official Tutorials</div>
+            <div class="resource-desc">Official Dynamo learning resource with examples</div>
+            <div class="resource-meta">
+                <span><i class="fas fa-clock"></i> 4 hours</span>
+                <span><i class="fas fa-book"></i> Interactive</span>
+                <span><i class="fas fa-tag"></i> Dynamo</span>
+            </div>
+            <a href="https://primer.dynamobim.org" target="_blank" class="resource-link">
+                <i class="fas fa-external-link-alt"></i> Start Learning
+            </a>
+        </div>
+        
+        <!-- COMPUTATIONAL DESIGN BOOK -->
+        <div class="resource-card book paid" data-skill="theory">
+            <div class="resource-type">📚 Essential Book</div>
+            <div class="resource-title">Algorithms-Aided Design by Arturo Tedeschi</div>
+            <div class="resource-desc">The comprehensive guide to parametric design (R650)</div>
+            <div class="resource-meta">
+                <span><i class="fas fa-book"></i> 400 pages</span>
+                <span><i class="fas fa-rand"></i> R650</span>
+                <span><i class="fas fa-tag"></i> Theory</span>
+            </div>
+            <a href="https://www.arturotedeschi.com" target="_blank" class="resource-link">
+                <i class="fas fa-external-link-alt"></i> Buy Book
+            </a>
+        </div>
+        
+        <!-- SA MARKET INSIGHTS -->
+        <div class="resource-card sa free" data-skill="sa-market">
+            <div class="resource-type">🇿🇦 Market Insights</div>
+            <div class="resource-title">SA Computational Design Market Report</div>
+            <div class="resource-desc">Which SA firms use computational design and what they look for</div>
+            <div class="resource-meta">
+                <span><i class="fas fa-building"></i> Local Focus</span>
+                <span><i class="fas fa-chart-bar"></i> Industry Data</span>
+                <span><i class="fas fa-tag"></i> Career</span>
+            </div>
+            <button class="resource-link" onclick="showSAMarketInfo()">
+                <i class="fas fa-eye"></i> View Insights
+            </button>
+        </div>
+        
+        <!-- RESEARCH PAPERS -->
+        <div class="resource-card free" data-skill="research">
+            <div class="resource-type">📄 Research Papers</div>
+            <div class="resource-title">Key Computational Design Papers</div>
+            <div class="resource-desc">Essential academic papers from Bartlett, MIT, ETH</div>
+            <div class="resource-meta">
+                <span><i class="fas fa-file-pdf"></i> PDF Collection</span>
+                <span><i class="fas fa-graduation-cap"></i> Academic</span>
+                <span><i class="fas fa-tag"></i> Research</span>
+            </div>
+            <button class="resource-link" onclick="showResearchPapers()">
+                <i class="fas fa-download"></i> Download Pack
+            </button>
+        </div>
+    </div>
+    
+    <div class="resource-stats">
+        <h3 class="section-subtitle">Your Learning Progress:</h3>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number" id="resources-completed">0</div>
+                <div class="stat-label">Resources Completed</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="hours-spent">0</div>
+                <div class="stat-label">Hours Spent Learning</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="skills-mastered">1</div>
+                <div class="stat-label">Skills Mastered</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="projects-uploaded">0</div>
+                <div class="stat-label">Projects Uploaded</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="resources" style="display: none;">
+    <!-- RESOURCE LIBRARY CONTENT FROM EARLIER GOES HERE -->
+</section>
         </main>
     </div>
 
