@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Computational Design Roadmap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div>
+                <h1><i class="fas fa-road"></i> My Computational Design Roadmap</h1>
+                <div class="subtitle">Personal Career Path for Architecture + Computational Design</div>
+            </div>
+            <div class="progress-summary">
+                <h3>My Progress (January 2026)</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="overall-progress"></div>
+                </div>
+                <div>Starting Year 2 | Wits University Architecture</div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="nav-item active" data-section="starting-point">📍 My Starting Point</div>
+            <div class="nav-item" data-section="january">📅 January 2026</div>
+            <div class="nav-item" data-section="february">📅 February 2026</div>
+            <div class="nav-item" data-section="march">📅 March 2026</div>
+            <div class="nav-item" data-section="april">📅 April 2026</div>
+            <div class="nav-item" data-section="may">📅 May 2026</div>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <aside class="sidebar">
+            <h3><i class="fas fa-calendar-alt"></i> My Timeline</h3>
+            <ul class="timeline-nav">
+                <li class="active" data-section="starting-point">📍 My Starting Point</li>
+                <li data-section="january">📅 January - Foundation</li>
+                <li data-section="february">📅 February - Coding</li>
+                <li data-section="march">📅 March - Grasshopper</li>
+                <li data-section="april">📅 April - Structures</li>
+                <li data-section="may">📅 May - Job Prep</li>
+            </ul>
+
+            <div class="skill-summary">
+                <h3><i class="fas fa-chart-line"></i> My Skills</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Revit</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Grasshopper</span>
+                        <span>25%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 25%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Python</span>
+                        <span>10%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 10%"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content-area" id="content-area">
+            <section id="starting-point">
+                <div class="section-header">
+                    <h2 class="section-title">📍 MY STARTING POINT</h2>
+                </div>
+                
+                <div class="milestone-card">
+                    <div class="milestone-header">
+                        <i class="fas fa-user-graduate milestone-icon"></i>
+                        <div>
+                            <div class="milestone-title">Wits University - Year 2 Architecture</div>
+                            <div>Bachelor of Architectural Studies</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 1rem;">
+                        <div><strong>✓ My Skills Now:</strong> Revit, QGIS, Photoshop</div>
+                        <div><strong>✓ My Role:</strong> House Committee Sports Officer</div>
+                        <div><strong>✓ My Interest:</strong> Parametric Design + Structural Engineering</div>
+                        <div><strong>✓ My Goal:</strong> MSc at Top Universities (ETH, MIT, UCL)</div>
+                    </div>
+                </div>
+                
+                <div class="advantage-box">
+                    <h3><i class="fas fa-star"></i> My Strengths</h3>
+                    <ul>
+                        <li>Starting computational design early (most wait until Year 3!)</li>
+                        <li>Understanding both design AND structure</li>
+                        <li>Leadership experience from House Committee</li>
+                        <li>South African perspective (unique for international applications)</li>
+                        <li>Clear roadmap from the beginning</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="january" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title">📅 JANUARY 2026 - GETTING READY</h2>
+                    <div class="time-estimate">~40 hours total</div>
+                </div>
+                
+                <h3 class="section-subtitle">What I Need to Learn:</h3>
+                
+                <div class="task-grid">
+                    <div class="task-card priority-high">
+                        <div class="task-header">
+                            <div>
+                                <div class="task-title">Advanced Revit Families</div>
+                                <div class="task-priority">Priority: 🟢 High</div>
+                            </div>
+                            <div class="task-hours">8 hours</div>
+                        </div>
+                        <div class="task-desc">Learn to make complex, parametric Revit families.</div>
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task1">
+                            <label for="task1">Mark as done</label>
+                        </div>
+                    </div>
+                    
+                    <div class="task-card priority-high">
+                        <div class="task-header">
+                            <div>
+                                <div class="task-title">Dynamo Basics</div>
+                                <div class="task-priority">Priority: 🟢 High</div>
+                            </div>
+                            <div class="task-hours">6 hours</div>
+                        </div>
+                        <div class="task-desc">Connect Revit with visual programming.</div>
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task2">
+                            <label for="task2">Mark as done</label>
+                        </div>
+                    </div>
+                    
+                    <div class="task-card priority-medium">
+                        <div class="task-header">
+                            <div>
+                                <div class="task-title">QGIS Refresher</div>
+                                <div class="task-priority">Priority: 🟡 Medium</div>
+                            </div>
+                            <div class="task-hours">7 hours</div>
+                        </div>
+                        <div class="task-desc">Site analysis and data export skills.</div>
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task3">
+                            <label for="task3">Mark as done</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="milestone-card">
+                    <div class="milestone-header">
+                        <i class="fas fa-flag milestone-icon"></i>
+                        <div>
+                            <div class="milestone-title">January Project: Smart Facade System</div>
+                            <div>Create a sun-responsive facade in Revit that automatically adjusts louvers.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="february" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title">📅 FEBRUARY 2026 - LEARN CODING</h2>
+                    <div class="time-estimate">~48 hours total</div>
+                </div>
+                
+                <div class="milestone-card">
+                    <div class="milestone-header">
+                        <i class="fas fa-flag milestone-icon"></i>
+                        <div>
+                            <div class="milestone-title">February Project: Auto Floor Plan Maker</div>
+                            <div>Write a Python script that designs apartment layouts automatically.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="march" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title">📅 MARCH 2026 - GRASSHOPPER</h2>
+                    <div class="time-estimate">~66 hours total</div>
+                </div>
+                
+                <div class="milestone-card">
+                    <div class="milestone-header">
+                        <i class="fas fa-flag milestone-icon"></i>
+                        <div>
+                            <div class="milestone-title">March Project: Shell Structure</div>
+                            <div>Design and analyze a parametric shell structure.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="april" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title">📅 APRIL 2026 - STRUCTURAL DESIGN</h2>
+                    <div class="time-estimate">~46 hours total</div>
+                </div>
+            </section>
+
+            <section id="may" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title">📅 MAY 2026 - JOB PREPARATION</h2>
+                    <div class="time-estimate">~69 hours total</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <h3>My Personal Learning Roadmap</h3>
+            <p>Created for Wits Architecture + Computational Design</p>
+            <div class="last-updated">
+                <i class="far fa-calendar-alt"></i> Started: January 2026
+            </div>
+        </div>
+    </footer>
+
+    <button id="print-button">
+        <i class="fas fa-print"></i> Print My Roadmap
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
