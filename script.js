@@ -707,4 +707,206 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize quest system when page loads
     initQuestSystem();
     updateResourceStats();
+        // ===== MOBILE SIDEBAR TOGGLE =====
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarClose = document.getElementById('sidebar-close');
+    
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+    }
+    
+    if (sidebarClose) {
+        sidebarClose.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+            document.body.style.overflow = ''; // Re-enable scrolling
+        });
+    }
+    
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 1024) {
+            if (sidebar.classList.contains('active') && 
+                !sidebar.contains(event.target) && 
+                !sidebarToggle.contains(event.target)) {
+                sidebar.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    });
+    
+    // Close sidebar on navigation click (mobile)
+    document.querySelectorAll('.timeline-nav li').forEach(item => {
+        item.addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                sidebar.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    // ===== DARK MODE TOGGLE =====
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Check for saved theme or OS preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        if (darkModeToggle) darkModeToggle.checked = true;
+    } else if (currentTheme === 'light') {
+        document.body.classList.remove('dark-mode');
+        if (darkModeToggle) darkModeToggle.checked = false;
+    } else if (prefersDarkScheme.matches) {
+        document.body.classList.add('dark-mode');
+        if (darkModeToggle) darkModeToggle.checked = true;
+    }
+    
+    // Toggle dark mode
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+
+    // ===== SCROLL ANIMATIONS =====
+    const fadeSections = document.querySelectorAll('.fade-in-section');
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+    
+    fadeSections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // ===== TOUCH GESTURES FOR MOBILE =====
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    document.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    document.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const swipeDistance = touchEndX - touchStartX;
+        
+        // Swipe right to open sidebar
+        if (swipeDistance > swipeThreshold && window.innerWidth <= 1024) {
+            sidebar.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Swipe left to close sidebar
+        if (swipeDistance < -swipeThreshold && window.innerWidth <= 1024) {
+            sidebar.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // ===== PROGRESS BAR ANIMATIONS =====
+    function animateProgressBars() {
+        const progressBars = document.querySelectorAll('.progress-fill');
+        progressBars.forEach(bar => {
+            const targetWidth = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+                bar.style.transition = 'width 1s ease-out';
+                bar.style.width = targetWidth;
+            }, 100);
+        });
+    }
+
+    // ===== SKILL BAR UPDATES WITH ANIMATION =====
+    function updateSkillBar(skillId, percentage) {
+        const skillBar = document.querySelector(`#skill-${skillId}`);
+        if (skillBar) {
+            skillBar.style.transition = 'width 0.8s ease-out';
+            skillBar.style.width = `${percentage}%`;
+            
+            // Update percentage text
+            const percentageText = document.querySelector(`#skill-${skillId}-text`);
+            if (percentageText) {
+                let current = parseInt(percentageText.textContent);
+                let target = percentage;
+                let increment = target > current ? 1 : -1;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    percentageText.textContent = current + '%';
+                    
+                    if (current === target) {
+                        clearInterval(timer);
+                    }
+                }, 20);
+            }
+        }
+    }
+
+    // ===== LAZY LOADING FOR IMAGES/CONTENT =====
+    const lazyLoad = () => {
+        const lazyElements = document.querySelectorAll('[data-src]');
+        
+        const lazyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    element.src = element.getAttribute('data-src');
+                    element.classList.add('loaded');
+                    lazyObserver.unobserve(element);
+                }
+            });
+        });
+        
+        lazyElements.forEach(element => {
+            lazyObserver.observe(element);
+        });
+    };
+
+    // ===== INITIALIZE ALL ENHANCEMENTS =====
+    function initializeEnhancements() {
+        // Add fade-in class to sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('fade-in-section');
+        });
+        
+        // Animate progress bars on load
+        setTimeout(animateProgressBars, 500);
+        
+        // Initialize lazy loading
+        lazyLoad();
+        
+        // Update skill bars based on progress
+        updateSkillBar('revit', playerStats.level * 10);
+        updateSkillBar('grasshopper', Math.min(100, playerStats.questsCompleted * 5));
+        updateSkillBar('python', Math.min(100, playerStats.skillsUnlocked * 20));
+    }
+
+    // Call initialization
+    initializeEnhancements();
 });

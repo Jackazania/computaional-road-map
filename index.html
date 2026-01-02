@@ -39,16 +39,73 @@
 
     <div class="container main-content">
         <aside class="sidebar">
-            <h3><i class="fas fa-calendar-alt"></i> My Timeline</h3>
-          <ul class="timeline-nav">
-    <li class="active" data-section="starting-point">📍 My Starting Point</li>
-    <li data-section="skill-tree">🌳 Skill Tree Progression</li>
-    <li data-section="quest-log">📜 Active Quests</li>
-    <li data-section="2026">🎯 2026 - Foundation Year</li>
-    <li data-section="2027">🔥 2027 - Core Mastery</li>
-    <li data-section="2028">🚀 2028 - Advanced Specialization</li>
-    <li data-section="2029">🎓 2029 - Masters Level</li>
-    <li data-section="resources">📚 Resource Library</li>
+         <!-- Sidebar Toggle for Mobile -->
+<button class="sidebar-toggle" id="sidebar-toggle">
+    <i class="fas fa-bars"></i>
+</button>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h3><i class="fas fa-calendar-alt"></i> My Timeline</h3>
+        <button class="sidebar-close" id="sidebar-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <ul class="timeline-nav">
+        <li class="active" data-section="starting-point">📍 My Starting Point</li>
+        <li data-section="skill-tree">🌳 Skill Tree Progression</li>
+        <li data-section="quest-log">📜 Active Quests</li>
+        <li data-section="2026">🎯 2026 - Foundation Year</li>
+        <li data-section="2027">🔥 2027 - Core Mastery</li>
+        <li data-section="2028">🚀 2028 - Advanced Specialization</li>
+        <li data-section="2029">🎓 2029 - Masters Level</li>
+        <li data-section="resources">📚 Resource Library</li>
+    </ul>
+
+    <div class="skill-summary">
+        <h3><i class="fas fa-chart-line"></i> My Skills</h3>
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>Revit</span>
+                <span id="skill-revit">75%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: 75%"></div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>Grasshopper</span>
+                <span id="skill-grasshopper">25%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: 25%"></div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>Python</span>
+                <span id="skill-python">10%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: 10%"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dark Mode Toggle in Sidebar -->
+    <div class="dark-mode-toggle">
+        <label class="toggle-switch">
+            <input type="checkbox" id="dark-mode-toggle">
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">
+                <i class="fas fa-moon"></i> Dark Mode
+            </span>
+        </label>
+    </div>
+</aside>   
 </ul>
 
             <div class="skill-summary">
