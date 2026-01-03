@@ -1537,7 +1537,51 @@ body.dark-mode .notification {
 .content-section {
     display: none;
 }
+/* Add to media query section (around line 750) */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    nav {
+        top: 150px; /* Adjust for header height */
+    }
+    
+    /* Fix mobile menu button positioning */
+    .mobile-menu-toggle {
+        display: flex;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+    
+    /* Ensure content sections are visible */
+    .main-content-area {
+        margin-bottom: 60px; /* Space for mobile menu button */
+    }
+}
 
+/* Add to fix content visibility */
+.content-section {
+    display: none;
+    width: 100%;
+}
+
+.content-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Make sure main content area is visible */
+.main-content-area {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    min-height: 500px;
+}
 /* ===== PRINT STYLES ===== */
 @media print {
     .sidebar, nav, .mobile-menu-toggle, .print-button {
