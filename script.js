@@ -25,91 +25,22 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // ===== INITIALIZE APP =====
-    initApp();
-
-   // Add this to the initApp() function (around line 30):
-function initApp() {
-    loadState();
-    initNavigation();
-    initSidebar();
-    initQuestSystem();
-    initDarkMode();
-    initPrintButton();
-    initSkillTree();
-    initResourceFilters();
-    initResourceButtons();
-    initResourceSection(); // Add this line
-    updateAllDisplays();
-    
-    // Show welcome notification
-    setTimeout(() => {
-        showNotification('Welcome to your Computational Design Roadmap! 🚀', 'info');
-    }, 1000);
-}
-
-// Add this new function:
-function initResourceSection() {
-    // Ensure resource cards are visible
-    const resourceCards = document.querySelectorAll('.resource-card');
-    resourceCards.forEach(card => {
-        card.style.display = 'block';
-    });
-    
-    // Initialize resource stats
-    const resourceStats = document.createElement('div');
-    resourceStats.className = 'resource-stats';
-    resourceStats.innerHTML = `
-        <h3 class="content-subtitle">Resource Progress</h3>
-        <div class="stats-grid">
-            <div class="stat">
-                <div class="stat-number" id="resources-completed">${appState.player.resourcesCompleted}</div>
-                <div class="stat-label">Resources Completed</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number" id="hours-spent">${Math.floor(appState.player.xp / 10)}</div>
-                <div class="stat-label">Hours Spent</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number" id="skills-mastered">${appState.player.questsCompleted >= 2 ? 2 : 1}</div>
-                <div class="stat-label">Skills Mastered</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number" id="projects-uploaded">${appState.player.projectsUploaded}</div>
-                <div class="stat-label">Projects Uploaded</div>
-            </div>
-        </div>
-    `;
-    
-    // Add stats to resources section if not already there
-    const resourcesSection = document.getElementById('resources');
-    if (resourcesSection && !resourcesSection.querySelector('.resource-stats')) {
-        resourcesSection.querySelector('.resources-grid').insertAdjacentElement('beforebegin', resourceStats);
+    function initApp() {
+        loadState();
+        initNavigation();
+        initSidebar();
+        initQuestSystem();
+        initDarkMode();
+        initPrintButton();
+        initSkillTree();
+        initResourceFilters();
+        updateAllDisplays();
+        
+        // Show welcome notification
+        setTimeout(() => {
+            showNotification('Welcome to your Computational Design Roadmap! 🚀', 'info');
+        }, 1000);
     }
-}
-    }
-    // Add new function for resource buttons
-function initResourceButtons() {
-    // Market insights button
-    const marketInsightsBtn = document.querySelector('[onclick="showMarketInsights()"]');
-    if (marketInsightsBtn) {
-        marketInsightsBtn.onclick = showMarketInsights;
-    }
-    
-    // Research papers button
-    const researchPapersBtn = document.querySelector('[onclick="showResearchPapers()"]');
-    if (researchPapersBtn) {
-        researchPapersBtn.onclick = showResearchPapers;
-    }
-}
-
-// Add these functions to show modals
-function showMarketInsights() {
-    showNotification('SA Market Insights:\n• DHK Architects - Extensive Grasshopper use\n• Paragon Architects - Parametric design focus\n• MMA Architects - BIM integration\n• Salary Range: R280k-R800k+', 'info');
-}
-
-function showResearchPapers() {
-    showNotification('Research Papers Pack:\n1. Generative Design in Architecture\n2. Machine Learning in Architectural Design\n3. Structural Optimization Papers\nDownload started...', 'info');
-}
 
     // ===== STATE MANAGEMENT =====
     function loadState() {
@@ -551,16 +482,6 @@ function showResearchPapers() {
         if (resourceCountEl) {
             resourceCountEl.textContent = 25 + appState.player.resourcesCompleted;
         }
-            const resourcesCompletedEl = document.getElementById('resources-completed');
-    const hoursSpentEl = document.getElementById('hours-spent');
-    const skillsMasteredEl = document.getElementById('skills-mastered');
-    const projectsUploadedEl = document.getElementById('projects-uploaded');
-    
-    if (resourcesCompletedEl) resourcesCompletedEl.textContent = appState.player.resourcesCompleted;
-    if (hoursSpentEl) hoursSpentEl.textContent = Math.floor(appState.player.xp / 10);
-    if (skillsMasteredEl) skillsMasteredEl.textContent = appState.player.questsCompleted >= 2 ? 2 : 1;
-    if (projectsUploadedEl) projectsUploadedEl.textContent = appState.player.projectsUploaded;
-}
         
         // Update skill bars
         updateSkillBars();
@@ -603,4 +524,7 @@ function showResearchPapers() {
             navigateToSection(sections[currentIndex - 1]);
         }
     }
+
+    // ===== START THE APP =====
+    initApp();
 });

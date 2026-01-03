@@ -60,7 +60,7 @@ h3 {
 header {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     box-shadow: var(--shadow);
     position: sticky;
     top: 0;
@@ -116,7 +116,7 @@ nav {
     background-color: var(--card-bg);
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     position: sticky;
-    top: 110px;
+    top: 105px;
     z-index: 99;
 }
 
@@ -323,10 +323,12 @@ nav {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
     padding: 2rem;
+    min-height: 500px;
 }
 
 .content-section {
     display: none;
+    width: 100%;
     animation: fadeIn 0.5s ease;
 }
 
@@ -834,7 +836,7 @@ nav {
     padding: 1.5rem;
     border: 2px solid var(--border);
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
     gap: 1.5rem;
     align-items: start;
 }
@@ -878,6 +880,18 @@ nav {
 
 .program-link:hover {
     text-decoration: underline;
+}
+
+.program-progress {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    min-width: 200px;
+}
+
+.progress-label {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
 }
 
 /* ===== RESOURCE LIBRARY ===== */
@@ -1048,11 +1062,41 @@ footer {
     to { opacity: 0; }
 }
 
+/* ===== DARK MODE ===== */
+body.dark-mode {
+    --light: #0f172a;
+    --dark: #f8fafc;
+    --gray: #cbd5e1;
+    --gray-light: #1e293b;
+    --border: #334155;
+    --card-bg: #1e293b;
+}
+
+body.dark-mode .info-card,
+body.dark-mode .quest-card,
+body.dark-mode .resource-card,
+body.dark-mode .program,
+body.dark-mode .skill-branch,
+body.dark-mode .path,
+body.dark-mode .track,
+body.dark-mode .stat,
+body.dark-mode .timeline-item,
+body.dark-mode .highlight-box,
+body.dark-mode .info-box {
+    background: #334155;
+    border-color: #475569;
+}
+
+body.dark-mode .notification {
+    background: #334155;
+    color: var(--dark);
+}
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1024px) {
     .main-content {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
     .sidebar {
@@ -1094,7 +1138,11 @@ footer {
     }
     
     nav {
-        top: 160px;
+        top: 140px;
+    }
+    
+    .main-content-area {
+        margin-bottom: 70px;
     }
 }
 
@@ -1139,6 +1187,11 @@ footer {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+    
+    .program-progress {
+        grid-column: 1;
+        margin-top: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1164,18 +1217,26 @@ footer {
         justify-content: center;
     }
 }
-/* ===== PROGRAM PROGRESS ===== */
-.program-progress {
-    grid-column: 1 / -1;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-}
 
-.progress-label {
-    font-size: 0.9rem;
-    color: var(--gray);
-    margin-bottom: 0.5rem;
+/* ===== PRINT STYLES ===== */
+@media print {
+    .sidebar, nav, .mobile-menu-toggle, .print-button {
+        display: none;
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+    
+    .main-content-area {
+        box-shadow: none;
+        padding: 1rem;
+    }
+    
+    header {
+        position: static;
+    }
 }
 
 /* ===== SCHOLARSHIP TRACKER ===== */
@@ -1230,374 +1291,4 @@ footer {
 .scholarship-status.later {
     background: var(--gray-light);
     color: var(--gray-dark);
-}
-
-/* ===== SKILL PROGRESSION ===== */
-.skill-progression {
-    margin: 1.5rem 0;
-    padding: 1.5rem;
-    background: var(--light);
-    border-radius: var(--radius);
-}
-
-.progression-track {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.progression-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem;
-    background: white;
-    border-radius: var(--radius);
-    border: 2px solid var(--border);
-    position: relative;
-}
-
-.progression-item.completed {
-    border-color: var(--accent);
-    background: #f0fdf4;
-}
-
-.progression-item.current {
-    border-color: var(--primary);
-    background: #e0f2fe;
-}
-
-.progression-item.upcoming {
-    opacity: 0.7;
-}
-
-.progression-icon {
-    font-size: 1.5rem;
-}
-
-.progression-content {
-    flex: 1;
-}
-
-.progression-title {
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 0.25rem;
-}
-
-.progression-desc {
-    color: var(--gray);
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-}
-
-.progression-status {
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.completed .progression-status {
-    color: var(--accent);
-}
-
-.current .progression-status {
-    color: var(--primary);
-}
-
-/* ===== PROJECT TIMELINE ===== */
-.project-timeline {
-    display: grid;
-    gap: 1rem;
-    margin: 1.5rem 0;
-}
-
-.project-card {
-    background: white;
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-}
-
-.project-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.project-icon {
-    font-size: 1.5rem;
-}
-
-.project-info {
-    flex: 1;
-}
-
-.project-title {
-    font-weight: 700;
-    color: var(--primary);
-    font-size: 1.1rem;
-}
-
-.project-date {
-    color: var(--gray);
-    font-size: 0.9rem;
-}
-
-.project-desc {
-    color: var(--gray);
-    margin-bottom: 1rem;
-    line-height: 1.5;
-}
-
-.project-status {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 0.8rem;
-}
-
-.project-status.in-progress {
-    background: #fef3c7;
-    color: #d97706;
-}
-
-.project-status.upcoming {
-    background: var(--gray-light);
-    color: var(--gray-dark);
-}
-
-.project-status.completed {
-    background: #d1fae5;
-    color: #065f46;
-}
-
-/* ===== RESOURCE STATS ===== */
-.resource-stats {
-    margin-top: 2rem;
-    background: var(--light);
-    padding: 1.5rem;
-    border-radius: var(--radius);
-}
-
-/* ===== DARK MODE ===== */
-body.dark-mode {
-    --light: #0f172a;
-    --dark: #f8fafc;
-    --gray: #cbd5e1;
-    --gray-light: #1e293b;
-    --border: #334155;
-    --card-bg: #1e293b;
-}
-
-body.dark-mode .info-card,
-body.dark-mode .quest-card,
-body.dark-mode .resource-card,
-body.dark-mode .program,
-body.dark-mode .skill-branch,
-body.dark-mode .path,
-body.dark-mode .track,
-body.dark-mode .stat,
-body.dark-mode .timeline-item,
-body.dark-mode .highlight-box,
-body.dark-mode .info-box {
-    background: #334155;
-    border-color: #475569;
-    /* Dark mode support for new components */
-body.dark-mode .scholarship-item,
-body.dark-mode .progression-item,
-body.dark-mode .project-card,
-body.dark-mode .skill-progression,
-body.dark-mode .scholarship-tracker,
-body.dark-mode .resource-stats {
-    background: #334155;
-    border-color: #475569;
-}
-
-body.dark-mode .scholarship-status.upcoming,
-body.dark-mode .project-status.in-progress {
-    background: #78350f;
-    color: #fef3c7;
-}
-
-body.dark-mode .scholarship-status.later,
-body.dark-mode .project-status.upcoming {
-    background: #475569;
-    color: #cbd5e1;
-}
-
-body.dark-mode .project-status.completed {
-    background: #065f46;
-    color: #d1fae5;
-}
-
-body.dark-mode .progression-item.completed {
-    background: #064e3b;
-    border-color: #10b981;
-}
-
-body.dark-mode .progression-item.current {
-    background: #1e40af;
-    border-color: #3b82f6;
-}
-}
-
-body.dark-mode .notification {
-    background: #334155;
-    color: var(--dark);
-}
-/* ===== DESKTOP LAYOUT FIX ===== */
-.main-content {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 2rem;
-    padding: 2rem 0;
-    position: relative;
-    min-height: calc(100vh - 300px);
-}
-
-/* Fix for main content area */
-.main-content-area {
-    background-color: var(--card-bg);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    padding: 2rem;
-    min-height: 600px;
-    width: 100%;
-}
-
-/* Make sure all sections take full width */
-.content-section {
-    width: 100%;
-}
-
-/* Fix sidebar positioning */
-.sidebar {
-    background-color: var(--card-bg);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    padding: 1.5rem;
-    height: fit-content;
-    position: sticky;
-    top: 180px;
-    max-height: calc(100vh - 200px);
-    overflow-y: auto;
-}
-/* Fix program card grid layout */
-.program {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.5rem;
-    align-items: start;
-}
-
-.program.tier-1 {
-    grid-template-columns: auto 1fr auto;
-}
-
-.program-info {
-    grid-column: 2;
-}
-
-.program-progress {
-    grid-column: 3;
-    grid-row: 1 / span 2;
-    min-width: 200px;
-}
-
-/* Hide mobile menu button on desktop */
-@media (min-width: 1025px) {
-    .mobile-menu-toggle {
-        display: none !important;
-    }
-    
-    .sidebar-header {
-        display: none !important;
-    }
-    
-    .sidebar {
-        display: block !important;
-        left: 0 !important;
-    }
-}
-
-/* Ensure content sections are visible */
-.content-section.active {
-    display: block;
-    animation: fadeIn 0.5s ease;
-}
-
-.content-section {
-    display: none;
-}
-/* Add to media query section (around line 750) */
-@media (max-width: 1024px) {
-    .main-content {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    nav {
-        top: 150px; /* Adjust for header height */
-    }
-    
-    /* Fix mobile menu button positioning */
-    .mobile-menu-toggle {
-        display: flex;
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        z-index: 1000;
-    }
-    
-    /* Ensure content sections are visible */
-    .main-content-area {
-        margin-bottom: 60px; /* Space for mobile menu button */
-    }
-}
-
-/* Add to fix content visibility */
-.content-section {
-    display: none;
-    width: 100%;
-}
-
-.content-section.active {
-    display: block;
-    animation: fadeIn 0.5s ease;
-}
-
-/* Make sure main content area is visible */
-.main-content-area {
-    background-color: var(--card-bg);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    padding: 2rem;
-    min-height: 500px;
-}
-/* ===== PRINT STYLES ===== */
-@media print {
-    .sidebar, nav, .mobile-menu-toggle, .print-button {
-        display: none;
-    }
-    
-    .main-content {
-        grid-template-columns: 1fr;
-        padding: 0;
-    }
-    
-    .main-content-area {
-        box-shadow: none;
-    }
-    
-    header {
-        position: static;
-    }
 }
