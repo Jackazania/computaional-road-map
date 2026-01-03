@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initPrintButton();
         initSkillTree();
         initResourceFilters();
+        initResourceButtons(); 
         updateAllDisplays();
         
         // Show welcome notification
@@ -43,6 +44,29 @@ document.addEventListener('DOMContentLoaded', function() {
             showNotification('Welcome to your Computational Design Roadmap! 🚀', 'info');
         }, 1000);
     }
+    // Add new function for resource buttons
+function initResourceButtons() {
+    // Market insights button
+    const marketInsightsBtn = document.querySelector('[onclick="showMarketInsights()"]');
+    if (marketInsightsBtn) {
+        marketInsightsBtn.onclick = showMarketInsights;
+    }
+    
+    // Research papers button
+    const researchPapersBtn = document.querySelector('[onclick="showResearchPapers()"]');
+    if (researchPapersBtn) {
+        researchPapersBtn.onclick = showResearchPapers;
+    }
+}
+
+// Add these functions to show modals
+function showMarketInsights() {
+    showNotification('SA Market Insights:\n• DHK Architects - Extensive Grasshopper use\n• Paragon Architects - Parametric design focus\n• MMA Architects - BIM integration\n• Salary Range: R280k-R800k+', 'info');
+}
+
+function showResearchPapers() {
+    showNotification('Research Papers Pack:\n1. Generative Design in Architecture\n2. Machine Learning in Architectural Design\n3. Structural Optimization Papers\nDownload started...', 'info');
+}
 
     // ===== STATE MANAGEMENT =====
     function loadState() {
@@ -484,6 +508,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (resourceCountEl) {
             resourceCountEl.textContent = 25 + appState.player.resourcesCompleted;
         }
+            const resourcesCompletedEl = document.getElementById('resources-completed');
+    const hoursSpentEl = document.getElementById('hours-spent');
+    const skillsMasteredEl = document.getElementById('skills-mastered');
+    const projectsUploadedEl = document.getElementById('projects-uploaded');
+    
+    if (resourcesCompletedEl) resourcesCompletedEl.textContent = appState.player.resourcesCompleted;
+    if (hoursSpentEl) hoursSpentEl.textContent = Math.floor(appState.player.xp / 10);
+    if (skillsMasteredEl) skillsMasteredEl.textContent = appState.player.questsCompleted >= 2 ? 2 : 1;
+    if (projectsUploadedEl) projectsUploadedEl.textContent = appState.player.projectsUploaded;
+}
         
         // Update skill bars
         updateSkillBars();
